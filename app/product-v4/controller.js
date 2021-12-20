@@ -10,7 +10,7 @@ const post = (req, res) => {
 
 const index = (req, res) => {
     const name = req.query.name;
-    Product.find({name: {$regex: name}})
+    Product.find({name: {$regex: name, $options : 'i'}})
         .then(result => res.send(result))
         .catch(error => res.send(error));
 }
